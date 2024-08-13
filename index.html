@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر رياض لبيع الخدمات</title>
+    <title>متجر كريم</title>
     <style>
         body {
             margin: 0;
@@ -12,7 +12,7 @@
             background-color: #F3F3F3;
             direction: rtl;
             text-align: center;
-            position: relative;
+            position: relative; /* لتحديد موقع الأزرار العائمة */
         }
         .top-menu {
             width: 100%;
@@ -87,6 +87,7 @@
             font-size: 14px;
             margin-top: 10px;
         }
+        /* الزر العائم */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -105,6 +106,7 @@
             width: 35px;
             height: 35px;
         }
+        /* زر واتساب فوق القائمة السفلية */
         .whatsapp-footer {
             position: fixed;
             bottom: 90px;
@@ -129,25 +131,25 @@
 <body>
 
     <div class="top-menu">
-        متجر رياض لبيع الخدمات
+        متجر كريم
     </div>
 
     <div class="content" id="page1">
-        <button onclick="showDropdown()">انقر لاختيار عدد المتابعين</button>
+        <button onclick="showDropdown()">انقر لاختيار عدد الشدات</button>
         <select id="shadatDropdown" style="display:none;" onchange="showPrice()">
-            <option value="" disabled selected>اختر عدد المتابعين</option>
-            <option value="30">500 متابع</option>
-            <option value="60">1000 متابع</option>
-            <option value="120">1500 متابع</option>
-            <option value="360">2000 متابع</option>
-            <option value="720">4000 متابع</option>
-            <option value="1200">5000 متابع</option>
-            <option value="1440">7000 متابع</option>
-            <option value="2000">10.000 متابع</option>
-            <option value="4000">15.000 متابع</option>
-            <option value="6000">20.000 متابع</option>
-            <option value="8000">50.000 متابع</option>
-            <option value="16000">100.000 متابع</option>
+            <option value="" disabled selected>اختر عدد الشدات</option>
+            <option value="30">30 شده</option>
+            <option value="60">60 شده</option>
+            <option value="120">120 شده</option>
+            <option value="360">360 شده</option>
+            <option value="720">720 شده</option>
+            <option value="1200">1200 شده</option>
+            <option value="1440">1440 شده</option>
+            <option value="2000">2000 شده</option>
+            <option value="4000">4000 شده</option>
+            <option value="6000">6000 شده</option>
+            <option value="8000">8000 شده</option>
+            <option value="16000">16000 شده</option>
         </select>
         <p id="price" class="price"></p>
         <p id="error1" class="error"></p>
@@ -155,8 +157,8 @@
     </div>
 
     <div class="content" id="page2" style="display:none;">
-        <button onclick="showKeyboard()">اضغط هنا لإدخال رابط الصفحه الخاصه بك على انستجرام</button>
-        <input type="text" id="pubgID" onfocus="openNumericKeyboard()" placeholder="أدخل الـرابط هنا" style="text-align: center;">
+        <button onclick="showKeyboard()">اضغط هنا لإدخال ID الخاص بك في ببجي</button>
+        <input type="text" id="pubgID" onfocus="openNumericKeyboard()" placeholder="أدخل الـ ID هنا" style="text-align: center;">
         <p id="error2" class="error"></p>
         <div class="button-group">
             <button onclick="nextPage(3)">التالي</button>
@@ -174,10 +176,10 @@
             <option value="etisalat">اتصالات كاش</option>
         </select>
         <div id="paymentInfo" style="display:none;">
-            <p>01099819012<button onclick="copyNumber()">نسخ</button></p>
+            <p>01027044706<button onclick="copyNumber()">نسخ</button></p>
             <input type="text" id="transferNumber" placeholder="أدخل الرقم الذي حولت منه" style="text-align: center;">
             <div class="note" id="paymentNote">
-                طريقة الدفع: انسخ الرقم الظاهر أمامك ثم اذهب للتحويل عليه المبلغ الذي قمت بشراء به ♥ بعد ذلك أدخل الرقم الذي حولت منه المبلغ إلى هذا الرقم 01099819012
+                طريقة الدفع: انسخ الرقم الظاهر أمامك ثم اذهب للتحويل عليه المبلغ الذي قمت بشراء به الشدات ♥ بعد ذلك أدخل الرقم الذي حولت منه المبلغ إلى هذا الرقم 01027044706
             </div>
         </div>
         <p id="error3" class="error"></p>
@@ -187,6 +189,7 @@
         </div>
     </div>
 
+    <!-- الصفحة الأخيرة بدون تعديلات -->
     <div class="content" id="page4" style="display:none;">
         <input type="text" id="firstName" placeholder="ادخل اسمك الاول" style="text-align: center;">
         <input type="text" id="whatsappNumber" placeholder="ادخل رقم تليفونك على وتساب" style="text-align: center;">
@@ -197,24 +200,26 @@
         </div>
     </div>
 
-    <a href="https://wa.me/201099819012" class="whatsapp-float" target="_blank">
+    <!-- الزر العائم على الصفحة الرئيسية -->
+    <a href="https://wa.me/201027044706" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
     </a>
 
+
     <script>
         const prices = {
-            "30": "5 جنيه",
-            "60": "10 جنيه",
-            "120": "15 جنيه",
-            "360": "20 جنيه",
-            "720": "40 جنيه",
-            "1200": "50 جنيه",
-            "1440": "70 جنيه",
-            "2000": "100 جنيه",
-            "4000": "150 جنيه",
-            "6000": "200 جنيه",
-            "8000": "500 جنيه",
-            "16000": "1000 جنيه"
+            "30": "25 جنيه",
+            "60": "50 جنيه",
+            "120": "100 جنيه",
+            "360": "240 جنيه",
+            "720": "480 جنيه",
+            "1200": "800 جنيه",
+            "1440": "990 جنيه",
+            "2000": "1300 جنيه",
+            "4000": "2600 جنيه",
+            "6000": "3900 جنيه",
+            "8000": "5000 جنيه",
+            "16000": "10000 جنيه"
         };
 
         function showDropdown() {
@@ -223,17 +228,109 @@
 
         function showPrice() {
             const shadat = document.getElementById('shadatDropdown').value;
-            const price = prices[shadat] || '';
-            document.getElementById('price').textContent = price;
-            document.getElementById('error1').textContent = '';
+            document.getElementById('price').textContent = prices[shadat] || '';
         }
 
         function showKeyboard() {
-            document.getElementById('pubgID').focus();
+            const input = document.getElementById('pubgID');
+            input.focus();
+        }
+
+        function nextPage(page) {
+            if (page === 2) {
+                const shadat = document.getElementById('shadatDropdown').value;
+                if (!shadat) {
+                    document.getElementById('error1').textContent = 'الرجاء اختيار عدد الشدات.';
+                    return;
+                }
+            } else if (page === 3) {
+                const pubgID = document.getElementById('pubgID').value;
+                if (!pubgID) {
+                    document.getElementById('error2').textContent = 'الرجاء إدخال ID ببجي الخاص بك.';
+                    return;
+                }
+            } else if (page === 4) {
+                const paymentMethod = document.getElementById('paymentDropdown').value;
+                if (!paymentMethod) {
+                    document.getElementById('error3').textContent = 'الرجاء اختيار طريقة الدفع.';
+                    return;
+                }
+                if (paymentMethod !== 'none') {
+                    const transferNumber = document.getElementById('transferNumber').value;
+                    if (!transferNumber) {
+                        document.getElementById('error3').textContent = 'الرجاء إدخال الرقم الذي حولت منه.';
+                        return;
+                    }
+                }
+            }
+
+            for (var i = 1; i <= 4; i++) {
+                document.getElementById('page' + i).style.display = 'none';
+            }
+            document.getElementById('error' + (page - 1)).textContent = ''; 
+            document.getElementById('page' + page).style.display = 'block';
+        }
+
+        function prevPage(page) {
+            for (var i = 1; i <= 4; i++) {
+                document.getElementById('page' + i).style.display = 'none';
+            }
+            document.getElementById('page' + page).style.display = 'block';
+        }
+
+        function completePurchase() {
+            const shadat = document.getElementById('shadatDropdown').value;
+            const price = prices[shadat] || '';
+            const pubgID = document.getElementById('pubgID').value;
+            const paymentMethod = document.getElementById('paymentDropdown').value;
+            const transferNumber = document.getElementById('transferNumber').value;
+            const firstName = document.getElementById('firstName').value;
+            const whatsappNumber = document.getElementById('whatsappNumber').value;
+
+            if (!firstName || !whatsappNumber) {
+                document.getElementById('error4').textContent = 'الرجاء إدخال جميع البيانات.';
+                return;
+            }
+
+            const data = {
+                "عدد الشدات": shadat,
+                "السعر": price,
+                "الايدي": pubgID,
+                "رقم التحويل": transferNumber,
+                "طريقة الدفع": paymentMethod,
+                "الاسم": firstName,
+                "رقم الواتساب": whatsappNumber
+            };
+
+            sendToTelegram(data);
+        }
+
+        function sendToTelegram(data) {
+            const botToken = '7291175923:AAGJ1rgv6fVwlZ6WA0uGX7soE9rAeM6r1iw';
+            const chatId = '5331171601';
+            let message = '';
+
+            for (const key in data) {
+                message += `${key}: ${data[key]}\n`;
+            }
+
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url).then(response => {
+                if (response.ok) {
+                    alert('تم إرسال البيانات بنجاح.');
+                } else {
+                    alert('حدث خطأ أثناء إرسال البيانات.');
+                }
+            }).catch(error => {
+                alert('حدث خطأ أثناء إرسال البيانات.');
+                console.error('Error:', error);
+            });
         }
 
         function openNumericKeyboard() {
-            document.getElementById('pubgID').type = 'tel';
+            const input = document.getElementById('pubgID');
+            input.setAttribute('type', 'tel');
         }
 
         function showPaymentDropdown() {
@@ -241,108 +338,22 @@
         }
 
         function showPaymentInfo() {
-            const paymentMethod = document.getElementById('paymentDropdown').value;
-            if (paymentMethod !== "none") {
-                document.getElementById('paymentInfo').style.display = 'block';
-                document.getElementById('paymentNote').style.display = 'block';
-                document.getElementById('error3').textContent = '';
-            } else {
-                document.getElementById('paymentInfo').style.display = 'none';
-                document.getElementById('paymentNote').style.display = 'none';
-            }
+            document.getElementById('paymentInfo').style.display = 'block';
+            document.getElementById('paymentNote').style.display = 'block';
         }
 
         function copyNumber() {
-            const number = "01099819012";
-            navigator.clipboard.writeText(number).then(() => {
-                alert("تم نسخ الرقم!");
-            });
-        }
-
-        function nextPage(pageNumber) {
-            if (pageNumber === 2) {
-                const shadat = document.getElementById('shadatDropdown').value;
-                if (!shadat) {
-                    document.getElementById('error1').textContent = 'الرجاء اختيار عدد المتابعين.';
-                    return;
-                }
-            } else if (pageNumber === 3) {
-                const pubgID = document.getElementById('pubgID').value;
-                if (!pubgID) {
-                    document.getElementById('error2').textContent = 'الرجاء إدخال رابط الصفحه الخاص بك.';
-                    return;
-                }
-            } else if (pageNumber === 4) {
-                const paymentMethod = document.getElementById('paymentDropdown').value;
-                const transferNumber = document.getElementById('transferNumber').value;
-                if (paymentMethod !== "none" && !transferNumber) {
-                    document.getElementById('error3').textContent = 'الرجاء إدخال الرقم الذي حولت منه.';
-                    return;
-                }
-            }
-
-            document.getElementById('page' + (pageNumber - 1)).style.display = 'none';
-            document.getElementById('page' + pageNumber).style.display = 'block';
-        }
-
-        function prevPage(pageNumber) {
-            document.getElementById('page' + (pageNumber + 1)).style.display = 'none';
-            document.getElementById('page' + pageNumber).style.display = 'block';
-        }
-
-        function completePurchase() {
-            const firstName = document.getElementById('firstName').value;
-            const whatsappNumber = document.getElementById('whatsappNumber').value;
-            const shadatDropdown = document.getElementById('shadatDropdown').value;
-            const pubgID = document.getElementById('pubgID').value;
-            const paymentMethod = document.getElementById('paymentDropdown').value;
-            const transferNumber = document.getElementById('transferNumber').value;
-            const price = prices[shadatDropdown];
-
-            if (!firstName || !whatsappNumber) {
-                document.getElementById('error4').textContent = 'الرجاء إدخال اسمك ورقم الواتساب.';
-                return;
-            }
-
-            const message = `
-                عدد المتابعين: ${shadatDropdown}
-                السعر: ${price}
-                رابط الصفحه: ${pubgID}
-                رقم التحويل: ${transferNumber}
-                طريقة الدفع: ${paymentMethod}
-                الاسم: ${firstName}
-                رقم الواتساب: ${whatsappNumber}
-            `;
-
-            sendToTelegramBot("6473278782:AAEsvqP6Vi5sHmBdx6yi0kJDbU36QrY4qqQ", "7037026615", message);
-            sendToTelegramBot("7456065584:AAHjH2x3dE4YyLAozpvTw5_C-XYh7KQh3eI", "7037026615", message);
-
-            alert("شكراً لك، تم إرسال طلبك بنجاح!");
-        }
-
-        function sendToTelegramBot(token, chatId, message) {
-            const url = `https://api.telegram.org/bot${token}/sendMessage`;
-            const data = {
-                chat_id: chatId,
-                text: message
-            };
-
-            fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }).then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to send message');
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
+            const copyText = document.querySelector("#paymentInfo p");
+            const tempInput = document.createElement("input");
+            document.body.appendChild(tempInput);
+            tempInput.value = copyText.textContent.trim();
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert("تم نسخ الرقم");
         }
     </script>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -388,7 +399,5 @@
             console.error('Error fetching the IP information:', error);
         });
     </script>
-</body>
-</html>
 </body>
 </html>
